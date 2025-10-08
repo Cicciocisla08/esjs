@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<script>
+// Array reference
+let incassi1=new Array(7);
+for(let i=0; i<incassi1.length; i++){
+    incassi1[i]=Number(prompt("Inserisci gli incassi"))
+}
+let incassi2=incassi1
+incassi2[0]=incassi2[0]-(incassi2[0]/10)
+incassi2[incassi2.length-1]=incassi2[incassi2.length-1]-(incassi2[incassi2.length-1]/10)
+console.log(incassi1)
+console.log(incassi2)
+let mediaPrima=0
+let mediaSeconda=0
+for(let i=0; i<incassi1.length; i++){
+    mediaPrima+=incassi1[i]
+}
+for(let i=0; i<incassi2.length; i++){
+    mediaSeconda+=incassi2[i]
+}
+console.log("Media Prima settimana "+mediaPrima/incassi1.length)
+console.log("Media Seconda settimana "+mediaSeconda/incassi2.length)
+//i risultati sono uguali perchè viene passato tutto l'indirizzo
+let incassi3 = [...incassi1]
+incassi3[0]=incassi2[0]-(incassi3[0]/10)
+incassi3[incassi3.length-1]=incassi3[incassi3.length-1]-(incassi3[incassi3.length-1]/10)
+console.log(incassi1)
+console.log(incassi3)
+
+
+
+
+</script>
+</body>
+</html>

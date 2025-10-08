@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<script>
+// Array reference
+var days = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'SATURDAY', 'SUNDAY'];
+var daysCopy = days;//viene passato tutto l'indirizzo dell'array days
+console.log(daysCopy);
+daysCopy [0] ='Lunedi'; //quando viene modificato l'array copy viene modificato anche l'altro
+console.log(days);
+console.log(daysCopy);//sono uguali
+var myNum = 10;
+var num2 = myNum;//viene passato solo il valore
+num2=4;//viene modificato solo num2
+console.log(myNum);
+console.log(num2);//sono diversi
+</script>
+</body>
+</html>
