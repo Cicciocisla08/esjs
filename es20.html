@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<script>
+function gestisciAziende() { 
+    let azienda = [];
+    let continua = 1; 
+    do {
+        let nuovoNome = prompt("Inserisci il nome"); 
+        let cassa_iniziale = Number(prompt("Inserisci la cassa iniziale"));
+        let andamento = prompt("Inserisci + o - per l'andamento");
+        let entrate = [];
+        let n = Number(prompt("Inserisci il numero di entrate"));
+        
+        for (let x = 0; x < n; x++) {
+            entrate.push(Number(prompt("Inserisci l'entrata " + (x + 1))));
+        }    
+        const nuovaAzienda = {
+            nome: nuovoNome, 
+            cassa: cassa_iniziale,
+            segno: andamento,
+            valori: entrate
+        };
+        azienda.push(nuovaAzienda);   
+        let cassa_finale = calcola(nuovaAzienda.cassa, nuovaAzienda.segno, ...nuovaAzienda.valori);       
+        console.log(`Cassa finale per ${nuovaAzienda.nome}: ${cassa_finale}`);
+        continua = Number(prompt("Inserisci 0 per terminare e 1 per continuare"));
+    } while (continua === 1);
+    
+    console.log("Programma terminato. Dati raccolti:", azienda);
+}
+
+function calcola(cassaIniziale, segno, ...valori) {
+    let cassa = cassaIniziale;
+
+    for (const valore of valori) {
+        if (segno === '+') {
+            cassa += valore;
+        } else if (segno === '-') {
+            cassa -= valore;
+        }
+    }
+    return cassa;
+}
+
+gestisciAziende();
+</script>
+</body>
+</html>
